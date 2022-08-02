@@ -1,0 +1,18 @@
+
+  <div class="jumbotron bg-primary" id="jumbotron">
+    <h1 class="display-4">
+      <%= @comrade.first_name %>
+      <%= @comrade.last_name %>
+    </h1>
+    <p class="lead">
+      <%= @comrade.email %>    |
+      <%= @comrade.phone %>    |
+      <%= @comrade.twitter %>  
+    </p>
+    <hr class="my-4">
+    <div>
+      <%= link_to "Edit", edit_comrade_path(@comrade), class: "btn btn-dark" %>
+      <%= link_to "Back", comrades_path, class: "btn btn-primary" %>
+      <%= link_to "Destroy", comrade_path(@comrade), data: { turbo_method: :delete, turbo_confirm: "Are you sure"}, class: " btn btn-dark" %>
+    </div>
+  </div>

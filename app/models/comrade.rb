@@ -1,0 +1,2 @@
+class Comrade < ApplicationRecord
+end
