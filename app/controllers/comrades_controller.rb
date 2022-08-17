@@ -1,5 +1,7 @@
 class ComradesController < ApplicationController
   before_action :set_comrade, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [ :index, :show ]
+  before_action :correct_user, only: [ :edit, :update, :destroy ]
 
   # GET /comrades or /comrades.json
   def index
@@ -12,7 +14,8 @@ class ComradesController < ApplicationController
 
   # GET /comrades/new
   def new
-    @comrade = Comrade.new
+    # @comrade = Comrade.new
+    @comrade = current_user.comrades.build
   end
 
   # GET /comrades/1/edit
@@ -21,7 +24,8 @@ class ComradesController < ApplicationController
 
   # POST /comrades or /comrades.json
   def create
-    @comrade = Comrade.new(comrade_params)
+    # @comrade = Comrade.new(comrade_params)
+    @comrade = current_user.comrades.build(comrade_params)
 
     respond_to do |format|
       if @comrade.save
@@ -56,6 +60,11 @@ class ComradesController < ApplicationController
     end
   end
 
+  def correct_user
+    @comrade = current_user.comrades.find_by(id: params[:id])
+    redirect_to comrades_path, notice: "Not Authorized To Perfom Action On This Comrade" if @comrade.nil?
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comrade
@@ -64,6 +73,6 @@ class ComradesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comrade_params
-      params.require(:comrade).permit(:first_name, :last_name, :email, :phone, :twitter)
+      params.require(:comrade).permit(:first_name, :last_name, :email, :phone, :twitter, :user_id)
     end
 end
