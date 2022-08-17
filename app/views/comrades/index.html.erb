@@ -1,9 +1,9 @@
 
+
 <table class="table table-striped table-bordered table-hover">
   <thead class="table-dark">
     <tr>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
+      <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
       <th scope="col">Twitter</th>
@@ -12,16 +12,18 @@
   </thead>
   <tbody>
     <% @comrades.each do |comrade| %>
-     <tr>
-      <td><%= comrade.first_name %></td>
-      <td><%= comrade.last_name %></td>
-      <td><%= comrade.email %></td>
-      <td><%= comrade.phone %></td>
-      <td><%= comrade.twitter %></td>
-      <td><%= link_to "Show", comrade %>|<%= link_to "edit", edit_comrade_path(comrade) %>|<%= link_to "Destroy", comrade_path(comrade), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %>
-    </tr><br>
-  <% end %>
-  
+      <% if comrade.user == current_user %>
+        <tr>
+          <td>
+            <%= link_to comrade.first_name + " " + comrade.last_name, comrade %>
+          </td>
+          <td><%= comrade.email %></td>
+          <td><%= comrade.phone %></td>
+          <td><%= comrade.twitter %></td>
+          <td><%= link_to "Edit", edit_comrade_path(comrade) %>|<%= link_to "Destroy", comrade_path(comrade), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %>
+        </tr>
+      <% end %><br>
+    <% end %>
   </tbody>
 </table>
 <%= link_to "New comrade", new_comrade_path, class: "btn btn-secondary" %>
