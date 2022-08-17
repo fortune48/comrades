@@ -10,7 +10,7 @@
     <div class="field form-group">
       <% f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %>
-    </div>
+    </div><br/>
   
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -28,7 +28,7 @@
     <div class="field form-group">
       <% f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Confirm password" %>
-    </div>
+    </div><br/>
   
     <div class="field">
       <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
