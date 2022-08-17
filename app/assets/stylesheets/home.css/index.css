@@ -1,0 +1,13 @@
+#home_page {
+  background-image: url(desert.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 700px;
+  padding: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  #carousel {
+    height: auto;
+  }
+}
