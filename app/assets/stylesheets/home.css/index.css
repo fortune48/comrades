@@ -1,13 +1,42 @@
 #home_page {
-  background-image: url(desert.jpeg);
+  background-image: url(gentleman2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 700px;
-  padding: 20px;
 }
 
 @media screen and (max-width: 600px) {
   #carousel {
     height: auto;
   }
+}
+
+#welcome {
+  widdth: 45%;
+  text-align: justify;
+
+}
+
+#log-in {
+  background-color: rgb(2, 2, 117);
+  width: 200px;
+  text-align: center;
+  color: white;
+  margin-top: 90px;
+  padding: 5px;
+}
+
+#sign-in {
+  background-color: rgb(2, 2, 117);
+  width: 200px;
+  text-align: center;
+  color: white;
+  margin-top: 90px;
+  padding: 5px;
+}
+
+#copyright {
+  background-color: rgb(22, 22, 65);
+  text-align: center;
+  padding: 10px;
 }

@@ -1,3 +1,22 @@
 <div class="container-fluid" id="home_page">
-  <h3>The home page</h3>
+  <div class="align-items-start pt-3">
+    <h1 class="text-white">Welcome to our community.</h1>
+    <h3 class="text-white pe-5 fw-light fst-italic">A community built on integrity, loyalty, trust, empathy, dependability confidence for one another.</h3>
+    
+    <h2 class="justify-content-center text-success pt-3">Here we share true comradeship.<h2>
+  </div>
+
+  <% if user_signed_in? %>
+  <div></div>
+  <% else %>
+  <div class="d-flex gap-4">
+    <div id="log-in"><%= link_to "Sign In", new_user_session_path, class: "btn text-white" %></div>
+    <div id="sign-in"><%= link_to "Sign Up", new_user_registration_path, class: "btn text-white" %></div>
+  </div>
+  <% end %>
+
+</div>
+
+<div>
+  <div class="text-white fw-lighter" id="copyright">Copyright 2022 by UkwuomaFortune</div>
 </div>
